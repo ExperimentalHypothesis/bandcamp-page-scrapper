@@ -5,8 +5,9 @@ import subprocess
 from bs4 import BeautifulSoup
 from BandcampPageParser import BandcampPageParser
 
-parser = BandcampPageParser("https://archivesdubmusic.bandcamp.com")
-baseDir = r"C:\Users\lukas.kotatko\Music\bc"
+parser = BandcampPageParser("https://voiceofeye.bandcamp.com/")
+baseDir = "C:\\Users\\lukas.kotatko\\Music\\VoiceOfEye"
 
 for album in parser.albumUrls:
+    print(baseDir)
     subprocess.run(f"bandcamp-dl {album} --base-dir={baseDir}")

@@ -17,4 +17,6 @@ class BandcampPageParser:
         
     def _getAlbumUrl(self, parrent: str) -> str:
         """ Helper function that parses one album and returns its link. """
+        if self.pageUrl.endswith("/music"):
+            self.pageUrl = self.pageUrl[:-6]
         return self.pageUrl + parrent.select_one(self.LINK_LOCATOR).attrs["href"]
